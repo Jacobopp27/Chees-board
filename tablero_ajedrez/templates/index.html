@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Ajedrez</title>
+</head>
+
+<body>
+    <h1>filas: {{filas}} columnas: {{columnas}}</h1>
+    <table>
+        <thead></thead>
+        <tbody>
+            {% for fila in range(filas): %}
+            <tr>
+                {% for columna in range(columnas): %} {% if ((columna+fila) % 2) == 0: %}
+                <td style="background-color: {{color1}};"></td>
+                {% else: %}
+                <td style="background-color: {{color2}};"></td>
+                {% endif %} {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
